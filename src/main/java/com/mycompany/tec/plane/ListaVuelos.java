@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tec.plane;
+package com.mycompany.tec.plane;
 
 import java.util.Random;
 public class ListaVuelos {
@@ -36,10 +36,10 @@ public class ListaVuelos {
         }
         
         
-        private Nodo head;
-        private Nodo tail;
-        private Nodo current;
-        private int size;
+        public Nodo head;
+        public Nodo tail;
+        public Nodo current;
+        public int size;
         
         
         
@@ -115,10 +115,7 @@ public class ListaVuelos {
                 System.out.println("El numero de puerta del vuelo: " + print.getData().getNumeroVuelo() + " es: " + print.getData().getDoor());
                 print= print.next;
             }
-            
-            
-            
-            
+
         }
         
         

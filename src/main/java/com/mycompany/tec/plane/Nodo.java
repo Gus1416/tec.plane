@@ -1,4 +1,4 @@
-package tec.plane;
+package com.mycompany.tec.plane;
 
 public class Nodo {
 
