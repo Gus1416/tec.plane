@@ -5,11 +5,14 @@
  */
 package com.mycompany.tec.plane;
 
+import java.io.IOException;
+import java.util.Random;
+
 
 public class TECPlane {
 ////
    ////
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         
         User Pedro = new User();
@@ -99,7 +102,7 @@ public class TECPlane {
         CheckIn  orden = cola.prioridad_cola(cola, nueva);
         
         
-        System.out.println();
+        /*System.out.println();
         System.out.println("QUITAR EL PRIMERO");
         orden.removeFirstNode();
         orden.consultarcola();
@@ -107,6 +110,7 @@ public class TECPlane {
         System.out.println(" quitar segundo");
         orden.removeFirstNode();
         orden.consultarcola();
+*/
         //System.out.println(orden.toString());
         
         System.out.println();
@@ -151,11 +155,19 @@ public class TECPlane {
        listflight.setearpuertas_vuelos(listflight, cantPuertas);
        
       
+        Salida analizarOpinion = new Salida();
         
-       
-       
-     
+        String comentario = "Pésimo servicio";
         
+        Random radin = new Random();
+
+        int atencion = radin.nextInt(151);
+        
+        analizarOpinion.salida_pasajeros(orden, atencion, comentario);
+        
+        System.out.print("Segunda persona");
+        
+        analizarOpinion.salida_pasajeros(orden, atencion, comentario);
         
         
         

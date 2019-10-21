@@ -12,6 +12,16 @@ public class User {
     private String destiny;
     private String planLealtad;
     private String asiento;
+    private String comentario;
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public String setComentario(String comentario) {
+        this.comentario = comentario;
+        return comentario;
+    }
 
     /**
      * @return the Nombre
