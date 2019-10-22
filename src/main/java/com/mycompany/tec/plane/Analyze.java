@@ -19,6 +19,8 @@ public class Analyze {
     
     public static String AnalizarSentimiento(String text) throws IOException{
       
+        String sentimiento = null;
+        
         LanguageServiceClient language = LanguageServiceClient.create();
 
            
@@ -27,37 +29,37 @@ public class Analyze {
         Sentiment sentiment = language.analyzeSentiment(doc).getDocumentSentiment();
 
         //Imprime la Observación realizada por el pasajero
-        System.out.println( "Observación : " + text );
+        sentimiento = "Observación : " + text + "\n";
         
         //Imprime la puntuación y magnitud del sentimiento
-        System.out.println( "Sentimento: puntuación = " +  sentiment.getScore() + "Sentimiento: magnitud = " + sentiment.getMagnitude());
+        sentimiento += "Sentimento: puntuación = " +  sentiment.getScore() + "magnitud = " + sentiment.getMagnitude() +"\n";
         
         //En esta sección verifica el sentimiento encontrada calculado por el nivel de puntuación encontrado
         if(sentiment.getScore() <= -0.6){
-            System.out.println("Claramente negativa");
+            sentimiento += "Claramente negativa";
         }
         if(sentiment.getScore() < 0.0 && sentiment.getScore() > -0.6){
-            System.out.println("Negativa");
+            sentimiento += "Negativa";
 
         }
         if(sentiment.getScore() == 0.0){
-            System.out.println("Combinado");
+            sentimiento += "Combinado";
 
         }
         if(sentiment.getScore() == 0.1){
-            System.out.println("Neutral");
+            sentimiento += "Neutral";
 
         }
          if(sentiment.getScore() > 0.1 && sentiment.getScore() < 0.6){
-            System.out.println("Positiva");
+            sentimiento += "Positiva";
 
         }
 
          if(sentiment.getScore() >= 0.6){
-            System.out.println("Claramente Positiva");
+            sentimiento += "Claramente Positiva";
 
         }
-        return null;
+        return sentimiento;
       }
 
 }
