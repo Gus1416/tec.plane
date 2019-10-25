@@ -16,7 +16,7 @@ int atencion = radin.nextInt(151);
 
 String Comentario = "Pésimo servicio";
 
-public String salida_pasajeros(CheckIn cola, int atencion, String Comentario) throws IOException{
+public String salida_pasajeros(Vuelos cola, int atencion, String Comentario) throws IOException{
     
     String coment = Comentario;
             

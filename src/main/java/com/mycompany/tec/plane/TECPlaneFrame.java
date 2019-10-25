@@ -5,12 +5,12 @@
  */
 package com.mycompany.tec.plane;
 
-import java.awt.Color;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.paint.Color;
 /////
 /**
  *
@@ -24,6 +24,8 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     Puerta puertas = new Puerta();
     ListaPuertas listaPuertas = new ListaPuertas();
     CheckIn orden = cola.prioridad_cola(cola, prioridad);
+    ListaVuelos vuelosOrdenados = new ListaVuelos();
+    ListaVuelos salidaOrdenada = new ListaVuelos();
     //CheckIn resultado = cola.prioridad_cola(cola, prioridad);
 
   
@@ -35,6 +37,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         initComponents();
         this.setSize(1330, 930);
         this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(new java.awt.Color(247,247,247));
         jPanel4.setSize(590, 400);
         jPanel5.setSize(590, 400);
         jPanel6.setSize(590, 400);
@@ -88,6 +91,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         jTextArea7 = new javax.swing.JTextArea();
         jButton14 = new javax.swing.JButton();
+        jComboBox6 = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -109,6 +113,8 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton5 = new javax.swing.JButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel28 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -123,7 +129,6 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -131,15 +136,20 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jButton4 = new javax.swing.JButton();
+        jComboBox4 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
+        jPanel2.setBackground(new java.awt.Color(0, 204, 255));
+
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 153));
         jLabel12.setText("Configuración Inicial");
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 153));
         jLabel13.setText("Cantidad de puertas");
 
         jButton7.setText("CREAR VUELOS");
@@ -150,12 +160,15 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 153));
         jLabel14.setText("Estructura de colas");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Colas de priorirdad", "Árboles Heap" }));
 
+        jLabel15.setForeground(new java.awt.Color(0, 0, 153));
         jLabel15.setText("Puertas");
 
+        jLabel16.setForeground(new java.awt.Color(0, 0, 153));
         jLabel16.setText("Vuelos");
 
         jButton8.setText("ASIGNAR");
@@ -258,17 +271,29 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jPanel3.setBackground(new java.awt.Color(0, 204, 255));
+
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 153));
         jLabel17.setText("Crear Vuelos");
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 153));
         jLabel18.setText("Numero de vuelo");
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 153));
         jLabel19.setText("Origen");
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 153));
         jLabel20.setText("Destino");
+
+        jTextField8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextField9.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTextField10.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton10.setText("CREAR");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -344,7 +369,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel8.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel8.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -379,6 +404,8 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             }
         });
 
+        jComboBox6.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -395,7 +422,8 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton14)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel27)
@@ -419,7 +447,9 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton14))
+                        .addComponent(jButton14)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -461,7 +491,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabel3.setFont(new java.awt.Font("Footlight MT Light", 1, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 153));
@@ -580,7 +610,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel5.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabel4.setFont(new java.awt.Font("Footlight MT Light", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 153));
@@ -600,6 +630,12 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             }
         });
 
+        jComboBox5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel28.setText(" Vuelos Disponibles");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -613,7 +649,10 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel28))))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -623,12 +662,17 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel28)
+                        .addGap(4, 4, 4)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel6.setBackground(new java.awt.Color(0, 204, 255));
 
         jLabel2.setFont(new java.awt.Font("Footlight MT Light", 1, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 153));
@@ -682,13 +726,6 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton3.setText("REGISTRAR");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -697,27 +734,27 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
-        jRadioButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jRadioButton1.setBackground(new java.awt.Color(0, 102, 255));
         PlanLealtad.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(0, 204, 0));
         jRadioButton1.setText("Económico");
 
-        jRadioButton2.setBackground(new java.awt.Color(204, 255, 204));
+        jRadioButton2.setBackground(new java.awt.Color(0, 102, 255));
         PlanLealtad.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(255, 153, 0));
         jRadioButton2.setText("Oro");
 
-        jRadioButton3.setBackground(new java.awt.Color(204, 255, 204));
+        jRadioButton3.setBackground(new java.awt.Color(0, 102, 255));
         PlanLealtad.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(102, 102, 102));
+        jRadioButton3.setForeground(new java.awt.Color(204, 204, 255));
         jRadioButton3.setText("Platino");
 
-        jRadioButton4.setBackground(new java.awt.Color(204, 255, 204));
+        jRadioButton4.setBackground(new java.awt.Color(0, 102, 255));
         PlanLealtad.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRadioButton4.setForeground(new java.awt.Color(204, 0, 204));
@@ -758,6 +795,9 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             }
         });
 
+        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -781,17 +821,18 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4))))
+                                .addComponent(jButton4))
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -819,10 +860,10 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -834,7 +875,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Footlight MT Light", 1, 85)); // NOI18N
-        jLabel1.setText("TEC Plane");
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gustavo  Calderon\\Desktop\\ddd.jpeg")); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 35)); // NOI18N
         jButton1.setText("SALIDA");
@@ -861,13 +902,15 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -882,18 +925,22 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -907,10 +954,6 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        User user = new User();
        
@@ -918,12 +961,16 @@ public class TECPlaneFrame extends javax.swing.JFrame {
        int posAsiento = random.nextInt(3);
        int numAsiento = random.nextInt(100);
 
+       Vuelos randomvuelo = listaVuelos.encontrar((String)jComboBox4.getSelectedItem());
+       
+       
        user.setNombre(jTextField1.getText());
        user.setFechaNacimiento(jTextField2.getText());
        user.setPasaporte(Integer.parseInt(jTextField3.getText()));
        user.setNacionalidad(jTextField4.getText());
        user.setOrigin(jTextField5.getText());
-       user.setDestiny(jTextField6.getText());
+       //user.setDestiny(jTextField6.getText());
+       user.setDestiny((String)jComboBox4.getSelectedItem());
        
        if (jRadioButton1.isSelected() == true){
            user.setPlanLealtad(jRadioButton1.getText());
@@ -938,7 +985,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Señale un tipo de ingreso", "Error", JOptionPane.ERROR_MESSAGE);
         }
         user.setAsiento(numAsiento, user.getPlanLealtad(), posAsiento);
-        cola.agregaracola(user);
+        randomvuelo.agregaracola(user);
         JOptionPane.showMessageDialog(null, "Asiento: " + user.getAsiento(), "Listo", JOptionPane.INFORMATION_MESSAGE);
         System.out.println(cola.toString());
         
@@ -946,29 +993,38 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        
+        Vuelos order = listaVuelos.encontrar((String)jComboBox4.getSelectedItem());
+        Vuelos prioritario = new Vuelos();
+        Vuelos exit = order.prioridad_cola(order, prioritario, (String)jComboBox4.getSelectedItem());
+        salidaOrdenada.insertar(exit);
+        Vuelos priority = new Vuelos();
+        Vuelos ordenado = order.prioridad_cola(order, priority, (String)jComboBox4.getSelectedItem());
+        vuelosOrdenados.insertar(ordenado);
+        vuelosOrdenados.consultarcola();
+        Vuelos vueloEspecifico = vuelosOrdenados.encontrar((String)jComboBox4.getSelectedItem());
         // Ya no hay que instanciarla cola a cada rato :D
-        jTextArea1.setText(cola.verEspeciales());
-        jTextArea3.setText(cola.verOros());
-        jTextArea4.setText(cola.verEconomicos());
-        jTextArea5.setText(cola.verPlatinos());
+        jTextArea1.setText(vueloEspecifico.verEspeciales());
+        jTextArea3.setText(vueloEspecifico.verOros());
+        jTextArea4.setText(vueloEspecifico.verEconomicos());
+        jTextArea5.setText(vueloEspecifico.verPlatinos());
 
-        System.out.println(cola.prioridad_cola(cola, prioridad).toString());   // Esto acomoda la cola inicial y la pasa a la prioridad
+        //System.out.println(cola.prioridad_cola(cola, prioridad).toString());   // Esto acomoda la cola inicial y la pasa a la prioridad
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-        prioridad.removeFirstNodeEspecial();      // este metodo remueve siempre el primero de la cola mientras sea de tipo ingreso especial
+        Vuelos atender = vuelosOrdenados.encontrar((String)jComboBox5.getSelectedItem());
+        atender.removeFirstNodeEspecial();      // este metodo remueve siempre el primero de la cola mientras sea de tipo ingreso especial
         System.out.println();
         System.out.println("Resultado de Cola Actual");
         System.out.println();
-        prioridad.consultarcola();         //  ver la cola actual desde el inicio al fin de la cola
-        jTextArea1.setText(prioridad.verEspeciales());   // Aca actualiza el frame de texto
+        atender.consultarcola();         //  ver la cola actual desde el inicio al fin de la cola
+        jTextArea1.setText(atender.verEspeciales());   // Aca actualiza el frame de texto
        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       jFrame2.setSize(450, 500);
+       jFrame2.setSize(415, 470);
        jFrame2.setLocationRelativeTo(null);
         jFrame2.setVisible(true);
         
@@ -997,6 +1053,9 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         vuelo.setDestino(jTextField10.getText());
         listaVuelos.insertar(vuelo);
         jComboBox2.addItem("Vuelo No. " + vuelo.getNumeroVuelo());
+        jComboBox4.addItem(jTextField10.getText());
+        jComboBox5.addItem(jTextField10.getText());
+        jComboBox6.addItem(jTextField10.getText());
         JOptionPane.showMessageDialog(null, "Vuelo agregado con éxito", "Listo", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_jButton10ActionPerformed
@@ -1022,16 +1081,17 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        JOptionPane.showMessageDialog(null, "Ingresa " + prioridad.front.getData().getNombre() + " al asiento " + prioridad.front.getData().getAsiento()
-                + " con destino a " + prioridad.front.getData().getDestiny(), "Abordado", JOptionPane.INFORMATION_MESSAGE);
-        prioridad.removeFirstNode();
+        Vuelos atendervip = vuelosOrdenados.encontrar((String)jComboBox5.getSelectedItem());
+        JOptionPane.showMessageDialog(null, "Ingresa " + atendervip.front.getData().getNombre() + " al asiento " + atendervip.front.getData().getAsiento()
+                + " con destino a " + atendervip.front.getData().getDestiny(), "Abordado", JOptionPane.INFORMATION_MESSAGE);
+        atendervip.removeFirstNode();
         System.out.println();
         System.out.println("Resultado de Cola Actual");
         System.out.println();
-        prioridad.consultarcola();         //  ver la cola actual desde el inicio al fin de la cola
-        jTextArea3.setText(prioridad.verOros());   // Aca actualiza el frame de texto
-        jTextArea4.setText(prioridad.verEconomicos());
-        jTextArea5.setText(prioridad.verPlatinos());
+        atendervip.consultarcola();         //  ver la cola actual desde el inicio al fin de la cola
+        jTextArea3.setText(atendervip.verOros());   // Aca actualiza el frame de texto
+        jTextArea4.setText(atendervip.verEconomicos());
+        jTextArea5.setText(atendervip.verPlatinos());
 
     }//GEN-LAST:event_jButton13ActionPerformed
 
@@ -1043,6 +1103,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        Vuelos atendersalida = salidaOrdenada.encontrar((String)jComboBox6.getSelectedItem());
         Salida salida = new Salida();
         Random random = new Random();
         
@@ -1050,7 +1111,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         String comentario = jTextArea7.getText();
 
         try {
-            jTextArea6.append(salida.salida_pasajeros(cola, atencion, comentario));
+            jTextArea6.append(salida.salida_pasajeros(atendersalida, atencion, comentario));
         } catch (IOException ex) {
             Logger.getLogger(TECPlaneFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1110,6 +1171,9 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JFrame jFrame3;
@@ -1133,6 +1197,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1173,7 +1238,6 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;

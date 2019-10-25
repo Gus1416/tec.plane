@@ -72,7 +72,7 @@ public class ListaVuelos {
          * @param num el vuelo que se desea encontrar
          * @return 
          */
-        public boolean encontrar(Vuelos num){
+       /* public boolean encontrar(Vuelos num){
             Nodo temp = this.head;
             
             while(temp != null){
@@ -88,9 +88,25 @@ public class ListaVuelos {
             }
             return false;
            
+        }*/
+        
+        public Vuelos encontrar(String destino){
+            Nodo temp = this.head;
+            
+            while(temp != null){
+         
+                
+                if(temp.getData().getDestino().equalsIgnoreCase(destino)){
+                    
+                    return temp.getData();   
+                }
+                else{
+                    temp=temp.getNext();
+                }
+            }
+            return null;
+           
         }
-        
-        
         /**
          * 
          * @param list    lista de vuelos a los cuales se le asignaran las puertas respectivas siempre y cuando se encuentren dentro de la cantidad de puertas existentes
@@ -118,7 +134,14 @@ public class ListaVuelos {
 
         }
         
-        
+       public void consultarcola() {
+            Nodo temp = head;
+
+            while (temp != null) {
+                System.out.println(temp.getData().getDestino());
+                temp = temp.getNext();
+            }
+        }
         
      @Override
     public String toString() {
@@ -132,7 +155,7 @@ public class ListaVuelos {
                     {
                     result.append(",");
             }
-            Vuelos element = currentNode.getData();
+            String element = currentNode.getData().getDestino();
 
             result.append(element == null ? "" : element);
             currentNode = currentNode.getNext();
