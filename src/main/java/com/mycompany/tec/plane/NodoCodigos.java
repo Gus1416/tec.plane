@@ -5,39 +5,39 @@
  */
 package com.mycompany.tec.plane;
 
-///
-public class NodoUser {
-      ///      ////
-     User data;
-     NodoUser next;
+/**
+ *
+ * @author Sebastian
+ */
+public class NodoCodigos {
+    
+    ////
+    String data;
+    NodoCodigos next;
 
-    public NodoUser() {
-        next = null;
-        data = null;
-    }
+    
 
-    public NodoUser(User num) {
+    public NodoCodigos (String num) {
         this.data = num;
 
     }
 
-    public void setData(User num) {
+    public void setData(String num) {
         this.data = num;
     }
 
-    public User getData() {
+    public String getData() {
         return this.data;
     }
 
-    public NodoUser getNext() {
+    public NodoCodigos getNext() {
         return this.next;
     }
-
-    public void setNext(NodoUser next) {
+    
+    public void setNext(NodoCodigos next) {
         this.next = next;
     }
-
-}
     
+}
     
 

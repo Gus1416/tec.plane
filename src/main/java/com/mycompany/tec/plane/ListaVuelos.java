@@ -7,7 +7,7 @@ package com.mycompany.tec.plane;
 
 import java.util.Random;
 public class ListaVuelos {
-    //////////
+    ////////////
      public class Nodo{
             
             Vuelos data;

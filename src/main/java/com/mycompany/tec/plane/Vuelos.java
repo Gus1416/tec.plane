@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.tec.plane;
-
+////
 ////////
 public class Vuelos {
     //
@@ -265,6 +265,25 @@ public class Vuelos {
                 temp.next = null;
             }
         }
+        
+        
+        
+        public CheckIn Codigos(CheckIn codes){
+            NodoUser temp = front;
+                   
+            while(temp != null){
+                codes.agregaracola(temp.getData().getAsiento());
+                temp= temp.next;
+            }
+            
+            return codes;
+            
+            
+            
+        }
+        
+        
+        
 
         @Override
         public String toString() {

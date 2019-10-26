@@ -1,7 +1,7 @@
 package com.mycompany.tec.plane;
 
 public class ListaPuertas {
-
+///
     public Nodo head;
     public Nodo tail;
     public Nodo current;

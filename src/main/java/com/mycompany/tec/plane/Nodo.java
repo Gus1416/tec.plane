@@ -1,5 +1,5 @@
 package com.mycompany.tec.plane;
-
+///
 public class Nodo {
 
     Puerta data;

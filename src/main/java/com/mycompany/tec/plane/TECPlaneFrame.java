@@ -11,21 +11,27 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.paint.Color;
-/////
+///////
 /**
  *
  * @author Gustavo Calderón
  */
 public class TECPlaneFrame extends javax.swing.JFrame {
 
-    CheckIn cola = new CheckIn();
-    CheckIn prioridad = new CheckIn();
+
     ListaVuelos listaVuelos = new ListaVuelos();
     Puerta puertas = new Puerta();
     ListaPuertas listaPuertas = new ListaPuertas();
-    CheckIn orden = cola.prioridad_cola(cola, prioridad);
+ 
     ListaVuelos vuelosOrdenados = new ListaVuelos();
     ListaVuelos salidaOrdenada = new ListaVuelos();
+    int counteratencion = 0;
+    
+    int countersalida= 0;
+    
+    int [] PuertasAleatorias= null;
+    
+    
     //CheckIn resultado = cola.prioridad_cola(cola, prioridad);
 
   
@@ -956,6 +962,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        User user = new User();
+       counteratencion ++;
        
        Random random = new Random();
        int posAsiento = random.nextInt(3);
@@ -987,7 +994,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         user.setAsiento(numAsiento, user.getPlanLealtad(), posAsiento);
         randomvuelo.agregaracola(user);
         JOptionPane.showMessageDialog(null, "Asiento: " + user.getAsiento(), "Listo", JOptionPane.INFORMATION_MESSAGE);
-        System.out.println(cola.toString());
+        System.out.println(randomvuelo.toString());
         
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -1061,7 +1068,15 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        int[] cantidadPuertas = puertas.crear_puertas(Integer.parseInt(jTextField7.getText()));
+        
+        int[] cantidadPuertas;
+        if (PuertasAleatorias == null) {
+            cantidadPuertas = puertas.crear_puertas(Integer.parseInt(jTextField7.getText()));            
+        }
+        else{ 
+            cantidadPuertas = PuertasAleatorias;
+        }
+        
         listaVuelos.setearpuertas_vuelos(listaVuelos, cantidadPuertas);
         ListaVuelos.Nodo temp = listaVuelos.head;
         while (temp != null) {
@@ -1104,6 +1119,9 @@ public class TECPlaneFrame extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         Vuelos atendersalida = salidaOrdenada.encontrar((String)jComboBox6.getSelectedItem());
+        int antesdetodo = atendersalida.size;
+        
+        
         Salida salida = new Salida();
         Random random = new Random();
         
@@ -1112,6 +1130,9 @@ public class TECPlaneFrame extends javax.swing.JFrame {
 
         try {
             jTextArea6.append(salida.salida_pasajeros(atendersalida, atencion, comentario));
+            int luegodesacar= atendersalida.size;
+            countersalida= (antesdetodo-luegodesacar);
+            
         } catch (IOException ex) {
             Logger.getLogger(TECPlaneFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

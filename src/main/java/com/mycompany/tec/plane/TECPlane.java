@@ -8,6 +8,11 @@ package com.mycompany.tec.plane;
 import java.io.IOException;
 import java.util.Random;
 
+import java.util.Arrays;
+
+import java.io.*; 
+import java.util.*; 
+
 
 public class TECPlane {
 ////
@@ -21,10 +26,13 @@ public class TECPlane {
         User Carla = new User();
         User Carlos = new User();
         
-        CheckIn cola = new CheckIn();
-        CheckIn nueva = new CheckIn();
+        Vuelos cola = new Vuelos();
+        Vuelos nueva = new Vuelos();
         
         
+        Random random = new Random();
+       int posAsiento = random.nextInt(3);
+       int numAsiento = random.nextInt(100);
         
         Pedro.setDestiny("Portugal");
         Pedro.setFechaNacimiento("10-09-17");
@@ -33,6 +41,7 @@ public class TECPlane {
         Pedro.setOrigin("Costa Rica");
         Pedro.setPlanLealtad("Ingreso Especial");
         Pedro.setPasaporte(1717171);
+        Pedro.setAsiento(posAsiento, Pedro.getPlanLealtad(), numAsiento);
         
         
         
@@ -44,6 +53,7 @@ public class TECPlane {
         Alex.setOrigin("Costa Rica");
         Alex.setPlanLealtad("Oro");
         Alex.setPasaporte(1919182);
+        Alex.setAsiento(posAsiento, Alex.getPlanLealtad(), numAsiento);
         
         
        
@@ -54,6 +64,7 @@ public class TECPlane {
         Maria.setOrigin("Costa Rica");
         Maria.setPlanLealtad("Ingreso Especial");
         Maria.setPasaporte(726789);
+        Maria.setAsiento(posAsiento, Maria.getPlanLealtad(), numAsiento);
         
         
         
@@ -62,8 +73,9 @@ public class TECPlane {
         Carla.setNacionalidad("Costarricense");
         Carla.setNombre("Carla");
         Carla.setOrigin("Costa Rica");
-        Carla.setPlanLealtad("Platinol");
+        Carla.setPlanLealtad("Platino");
         Carla.setPasaporte(17718);
+        Carla.setAsiento(posAsiento, Carla.getPlanLealtad(), numAsiento);
         
       
         Carlos.setDestiny("Belgica");
@@ -73,6 +85,7 @@ public class TECPlane {
         Carlos.setOrigin("Costa Rica");
         Carlos.setPlanLealtad("Oro");
         Carlos.setPasaporte(17718);
+        Carlos.setAsiento(posAsiento, Carlos.getPlanLealtad(), numAsiento);
         
         
         /// INSERT DATOS A LA COLA NORMAL
@@ -83,14 +96,14 @@ public class TECPlane {
         System.out.println();
         
         // EN ESTE ORDEN DE PLAN ESTAN INGRESANDO A LA COLA NORMAL
-        cola.agregaracola(Carla); // Economico
-        cola.agregaracola(Carlos);  //Oro
-        cola.agregaracola(Alex);   // Oro            // Carla,Carlos,Alex,Maria,Pedro
-        cola.agregaracola(Maria); // Platino
-        cola.agregaracola(Pedro);  //Especial
+        //cola.agregaracola(Carla); // Economico
+        ///cola.agregaracola(Carlos);  //Oro
+       //// cola.agregaracola(Alex);   // Oro            // Carla,Carlos,Alex,Maria,Pedro
+        //cola.agregaracola(Maria); // Platino
+       // cola.agregaracola(Pedro);  //Especial
        
         
-        System.out.println(cola.toString());
+        //System.out.println(cola.toString());
 
         
         System.out.println();
@@ -98,8 +111,7 @@ public class TECPlane {
         System.out.println();
         
   
-        System.out.println(cola.prioridad_cola(cola, nueva).toString());
-        CheckIn  orden = cola.prioridad_cola(cola, nueva);
+
         
         
         /*System.out.println();
@@ -114,7 +126,7 @@ public class TECPlane {
         //System.out.println(orden.toString());
         
         System.out.println();
-        System.out.println("Rsultado de asignacion de vuelos");
+        System.out.println("Resultado de asignacion de vuelos");
         
        
         // FUNCION    3.1 ???????
@@ -134,28 +146,56 @@ public class TECPlane {
        vuelo1.setDestino("Holanda");
        vuelo1.setNumeroVuelo(17);
        vuelo1.setOrigen("Costa Rica");
+       //vuelo1.agregaracola(Carla);
        
        vuelo2.setDestino("Brazil");
        vuelo2.setNumeroVuelo(99);
        vuelo2.setOrigen("Costa Rica");
+       //vuelo2.agregaracola(Carlos);
        
        vuelo3.setDestino("Rusia");
        vuelo3.setNumeroVuelo(71);
        vuelo3.setOrigen("Costa Rica");
+       vuelo3.agregaracola(Alex);
+       vuelo3.agregaracola(Carla);
+       vuelo3.agregaracola(Carlos);
+       vuelo3.agregaracola(Maria);
+       vuelo3.agregaracola(Pedro);
        
        
        ListaVuelos listflight = new ListaVuelos();
+       ListaVuelos ORDENADISIMA = new ListaVuelos();
        
        listflight.insertar(vuelo1);
        listflight.insertar(vuelo2);
        listflight.insertar(vuelo3);
+       
+       System.out.println();
+       System.out.println();
+       System.out.println("AGARRAR COLA DESDE LA LISTA DE VUELOS");
+       Vuelos getvuelorandom = listflight.encontrar("Rusia");
+       System.out.println(getvuelorandom.toString());
+       
+       
+       Vuelos pri = new Vuelos();
+        
+       Vuelos ordenado = getvuelorandom.prioridad_cola(getvuelorandom,pri,"Rusia");
+       
+       ORDENADISIMA.insertar(ordenado);
+        System.out.println("LISTA DE VUELOS ORDENADASSSSSSSSSSSSSSSSSSSSSSSS");
+        System.out.println(ORDENADISIMA.toString());
+        ORDENADISIMA.consultarcola();
+       
+       System.out.println();
+       System.out.println();
+       System.out.println("*********************************************");
        
        
        
        listflight.setearpuertas_vuelos(listflight, cantPuertas);
        
       
-        Salida analizarOpinion = new Salida();
+        /*Salida analizarOpinion = new Salida();
         
         String comentario = "Pésimo servicio";
         
@@ -163,11 +203,86 @@ public class TECPlane {
 
         int atencion = radin.nextInt(151);
         
-        analizarOpinion.salida_pasajeros(orden, atencion, comentario);
+        analizarOpinion.salida_pasajeros(vuelo3, atencion, comentario);
         
         System.out.print("Segunda persona");
         
-        analizarOpinion.salida_pasajeros(orden, atencion, comentario);
+        analizarOpinion.salida_pasajeros(vuelo3, atencion, comentario);*/
+        
+        
+        
+        
+       //-----------------------------------------ADMINISTRACION---------------------------------------------
+       
+       // Cola actual del vuelo especifico
+       
+        System.out.println(vuelo3.toString());
+       
+        // 1
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("VER LAS PUERTAS EXISTETES");
+        System.out.println(Arrays.toString(cantPuertas));     
+        
+        //2
+        //-----------------------------------------------------------------------------
+        System.out.println("Cantidad de personas en la cola del vuelo 3");     //2.1
+        System.out.println(vuelo3.size);
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------
+        
+        //-----------------------------------------------------------------------------
+        System.out.println("Siguiente Cliente del Vuelo");     //2.2
+        System.out.println(vuelo3.front.next.data.getNombre());
+        //-------------------------------------------------------------------------------
+        
+        //-----------------------------------------------------------------------------
+        System.out.println("Codigos de los Asientos del vuelo especifico");     //2.3
+        CheckIn codes = new CheckIn();
+        CheckIn codigos = vuelo3.Codigos(codes);
+        System.out.println("Los codigos de asiento Son: ");
+        codigos.consultarcola();
+        //-------------------------------------------------------------------------------
+        
+        
+        //3
+        //-----------------------------------------------------------------------------
+              // SE HACE A NIVEL DE INTERFAZ
+        //-------------------------------------------------------------------------------
+        //
+        
+        //4
+        //5
+        
+        //6
+        //---------------------------------------
+        // Basicamente es obtener el counteratencion que corresponde a todos los usuarios de todos los vuelos que fueron registrados
+        //---------------------------------------
+        
+        
+        //7
+        //-----------------------------------------------------------------------------------------------------------------------------------------------
+        System.out.println("Atencion por puertas");
+        // La solapilla es una lista de vuelos y se mete en cada vuelo y obtiene la puerta asignada a cada uno para que 
+        // se muestre en pantalla
+        
+        System.out.println("Puerta del vuelo 3 asignada : " + vuelo3.getDoor());
+        
+        // Obtener basicamente le hace un:
+        
+        // Size contiene a toda la gente metida en la cola del vuelo entonces es la misma vara que la gente atendida en la puerta especifica del vuelo
+        System.out.println("Cantidad de personas atendidas en la puerta" + vuelo3.getDoor() + "es: " + vuelo3.size);
+        //---------------------------------------------------------------------------------------------------------------------------------------------------
+        
+        //8
+        //-----------------------------------------------------------------------------------------------------------------------------------------------
+        //---------------------------------------
+        // Basicamente es obtener el countersalida (aun falta testearlo a nivel de interfaz ( su buen funcionamiento es un misterio)
+        //---------------------------------------
+        
+        
+        
+        
         
         
         

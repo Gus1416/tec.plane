@@ -3,7 +3,7 @@ package com.mycompany.tec.plane;
 import java.util.Random;
 
 public class User {
-///////
+//////////
     private String Nombre;
     private String FechaNacimiento;
     private int pasaporte;
