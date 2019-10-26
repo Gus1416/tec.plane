@@ -13,6 +13,7 @@ public class User {
     private String planLealtad;
     private String asiento;
     private String comentario;
+    private int timeEsperaEntrada;
 
     public String getComentario() {
         return comentario;
@@ -127,6 +128,16 @@ public class User {
     public String getAsiento() {
         return asiento;
     }
+
+    public int getTimeEsperaEntrada() {
+        return timeEsperaEntrada;
+    }
+
+    public void setTimeEsperaEntrada(int timeEsperaEntrada) {
+        this.timeEsperaEntrada = timeEsperaEntrada;
+    }
+    
+    
 
     /**
      * @param asiento the asiento to set

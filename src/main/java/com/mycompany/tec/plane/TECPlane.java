@@ -33,6 +33,8 @@ public class TECPlane {
         Random random = new Random();
        int posAsiento = random.nextInt(3);
        int numAsiento = random.nextInt(100);
+       
+       int esperaRandom = random.nextInt(170);
         
         Pedro.setDestiny("Portugal");
         Pedro.setFechaNacimiento("10-09-17");
@@ -42,6 +44,7 @@ public class TECPlane {
         Pedro.setPlanLealtad("Ingreso Especial");
         Pedro.setPasaporte(1717171);
         Pedro.setAsiento(posAsiento, Pedro.getPlanLealtad(), numAsiento);
+        Pedro.setTimeEsperaEntrada(esperaRandom);
         
         
         
@@ -54,6 +57,7 @@ public class TECPlane {
         Alex.setPlanLealtad("Oro");
         Alex.setPasaporte(1919182);
         Alex.setAsiento(posAsiento, Alex.getPlanLealtad(), numAsiento);
+        Alex.setTimeEsperaEntrada(esperaRandom);
         
         
        
@@ -65,6 +69,7 @@ public class TECPlane {
         Maria.setPlanLealtad("Ingreso Especial");
         Maria.setPasaporte(726789);
         Maria.setAsiento(posAsiento, Maria.getPlanLealtad(), numAsiento);
+        Maria.setTimeEsperaEntrada(esperaRandom);
         
         
         
@@ -76,6 +81,7 @@ public class TECPlane {
         Carla.setPlanLealtad("Platino");
         Carla.setPasaporte(17718);
         Carla.setAsiento(posAsiento, Carla.getPlanLealtad(), numAsiento);
+        Carla.setTimeEsperaEntrada(esperaRandom);
         
       
         Carlos.setDestiny("Belgica");
@@ -86,6 +92,7 @@ public class TECPlane {
         Carlos.setPlanLealtad("Oro");
         Carlos.setPasaporte(17718);
         Carlos.setAsiento(posAsiento, Carlos.getPlanLealtad(), numAsiento);
+        Carlos.setTimeEsperaEntrada(esperaRandom);
         
         
         /// INSERT DATOS A LA COLA NORMAL
@@ -195,7 +202,7 @@ public class TECPlane {
        listflight.setearpuertas_vuelos(listflight, cantPuertas);
        
       
-        /*Salida analizarOpinion = new Salida();
+        Salida analizarOpinion = new Salida();
         
         String comentario = "Pésimo servicio";
         
@@ -205,9 +212,12 @@ public class TECPlane {
         
         analizarOpinion.salida_pasajeros(vuelo3, atencion, comentario);
         
-        System.out.print("Segunda persona");
         
-        analizarOpinion.salida_pasajeros(vuelo3, atencion, comentario);*/
+        System.out.print("Segunda persona: ");
+        
+        int atencion2 = radin.nextInt(151);
+        
+        analizarOpinion.salida_pasajeros(vuelo3, atencion2, comentario);
         
         
         

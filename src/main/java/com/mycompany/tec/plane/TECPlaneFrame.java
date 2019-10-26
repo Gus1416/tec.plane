@@ -1020,7 +1020,11 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Random timeRandomEsp = new Random();
+        int timeEsperaAtencionEsp = timeRandomEsp.nextInt(151);
+        
         Vuelos atender = vuelosOrdenados.encontrar((String)jComboBox5.getSelectedItem());
+        atender.front.getData().setTimeEsperaEntrada(timeEsperaAtencionEsp);
         atender.removeFirstNodeEspecial();      // este metodo remueve siempre el primero de la cola mientras sea de tipo ingreso especial
         System.out.println();
         System.out.println("Resultado de Cola Actual");
@@ -1096,9 +1100,13 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        Random timeRandom = new Random();
+        int timeEsperaAtencion = timeRandom.nextInt(151);
+        
         Vuelos atendervip = vuelosOrdenados.encontrar((String)jComboBox5.getSelectedItem());
         JOptionPane.showMessageDialog(null, "Ingresa " + atendervip.front.getData().getNombre() + " al asiento " + atendervip.front.getData().getAsiento()
                 + " con destino a " + atendervip.front.getData().getDestiny(), "Abordado", JOptionPane.INFORMATION_MESSAGE);
+        atendervip.front.getData().setTimeEsperaEntrada(timeEsperaAtencion);
         atendervip.removeFirstNode();
         System.out.println();
         System.out.println("Resultado de Cola Actual");
