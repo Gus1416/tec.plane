@@ -10,35 +10,35 @@ import java.util.Random;
 
 public class Salida {
     
-float prom_time_salida;
+static float prom_time_salida;
 ///////////
-float prom_time_espe;
+static float prom_time_espe;
 
-float prom_time_plat;
+static float prom_time_plat;
 
-float prom_time_oro;
+static float prom_time_oro;
 
-float prom_time_eco;
+static float prom_time_eco;
 ///////////
-int cantpeoplesalida;
+static int cantpeoplesalida;
 ///////////
-int cantEspe;
+static int cantEspe;
 
-int cantPlat;
+static int cantPlat;
 
-int cantOro;
+static int cantOro;
 
-int cantEco;
+static int cantEco;
 ///////////
-int timeSalida;
+static int timeSalida;
 ///////////
-int timeSalidaEsp;
+static int timeSalidaEsp;
 
-int timeSalidaPlat;
+static int timeSalidaPlat;
 
-int timeSalidaOro;
+static int timeSalidaOro;
 
-int timeSalidaEco;
+static int timeSalidaEco;
 
 
 

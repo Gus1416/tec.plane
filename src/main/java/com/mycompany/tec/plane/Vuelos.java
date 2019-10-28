@@ -282,7 +282,67 @@ public class Vuelos {
             
         }
         
+        public String SegunPlanLealtad(){
+            
+            int ECO=0;
+            int OR= 0;
+            int PO=0;
+            int EL= 0;
+            
+            NodoUser temp1= front;
+            NodoUser temp2 = front;
+            
+             while (temp1 != null) {
+                if (temp1.getData().getPlanLealtad().equalsIgnoreCase("Ingreso Especial")) {
+                    EL++;
+                    temp1 = temp1.getNext();
+                } else {
+                    temp1 = temp1.getNext();
+                }
+
+            }
+
+         
+            // Platino
+            while (temp2 != null) {
+                if (temp2.getData().getPlanLealtad().equalsIgnoreCase("Platino")) {
+                    PO++;
+                    temp2 = temp2.getNext();
+                } else {
+                    temp2 = temp2.getNext();
+                }
+            }
+
+            NodoUser temp3 = front;
+
+            // Oro
+            while (temp3 != null) {
+                if (temp3.getData().getPlanLealtad().equalsIgnoreCase("Oro")) {
+                    OR++;
+                    temp3 = temp3.getNext();
+                } else {
+                    temp3 = temp3.getNext();
+                }
+
+            }
+
+            NodoUser temp4 = front;
+
+            // Economico
+            while (temp4 != null) {
+                if (temp4.getData().getPlanLealtad().equalsIgnoreCase("Económico")) {
+                    ECO++;
+                    temp4 = temp4.getNext();
+                } else {
+                    temp4 = temp4.getNext();
+                }
+         
+        }
         
+        String resultados =  "La cantidad de personas atendidas de Ingreso especial es:" + EL +  " de Platino: " + PO +" de Oro:"  + OR +" de Economico:" + ECO;
+            
+         return resultados;   
+        }
         
 
         @Override

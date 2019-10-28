@@ -89,7 +89,22 @@ public class ListaVuelos {
             return false;
            
         }*/
-        
+        public Vuelos listafinal(Vuelos ultima){
+            
+            Nodo tempo = head;
+            while( tempo != null){
+                NodoUser beg = tempo.data.front;
+                while(beg != null){
+                    User DATA = beg.data;
+                    ultima.agregaracola(DATA);   
+                    beg = beg.next;
+                }
+                tempo = tempo.next;
+            }
+            
+            return ultima;
+          
+        }
         public Vuelos encontrar(String destino){
             Nodo temp = this.head;
             
