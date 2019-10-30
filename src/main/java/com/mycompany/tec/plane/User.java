@@ -14,7 +14,46 @@ public class User {
     private String asiento;
     private String comentario;
     private int timeEsperaEntrada;
+    private int prioridad;
 
+    public User(int prioridad){
+        this.Nombre = null;
+        this.FechaNacimiento = null;
+        this.Nacionalidad = null;
+        this.asiento = null;
+        this.comentario = null;
+        this.contador = 0;
+        this.destiny = null;
+        this.origin = null;
+        this.pasaporte = 0;
+        this.planLealtad = null;
+        this.timeEsperaEntrada = 0;
+        this.prioridad = prioridad;
+        
+    }
+        public User(){
+        this.Nombre = null;
+        this.FechaNacimiento = null;
+        this.Nacionalidad = null;
+        this.asiento = null;
+        this.comentario = null;
+        this.contador = 0;
+        this.destiny = null;
+        this.origin = null;
+        this.pasaporte = 0;
+        this.planLealtad = null;
+        this.timeEsperaEntrada = 0;
+        this.prioridad = 0;
+        
+    }
+    public int getPrioridad(){
+        return prioridad;
+    }
+    
+    public void setPrioridad(int prioridad){
+        this.prioridad = prioridad;
+    }
+    
     public String getComentario() {
         return comentario;
     }

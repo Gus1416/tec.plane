@@ -18,14 +18,14 @@ import com.twilio.type.PhoneNumber;
 public class EnvioSMS {
     // Find your Account Sid and Token at twilio.com/console
     // DANGER! This is insecure. See http://twil.io/secure
-    public static final String ACCOUNT_SID = "ACaed7fc7e3e8a915c1d230dfd1ed5f671";
-    public static final String AUTH_TOKEN = "937754e66dc95a3e0113e70dc1664049";
+    public static final String ACCOUNT_SID = "AC0cf576f0803030975ac2d606ab505743";
+    public static final String AUTH_TOKEN = "e6388633b9327b4519ab2ea48caf89a6";
 
     public void EnvioDeMensaje(String numero, String mensaje) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message.creator(
                 new com.twilio.type.PhoneNumber(numero),
-                new com.twilio.type.PhoneNumber("+12016437228"),
+                new com.twilio.type.PhoneNumber("+13082171744"),
                 mensaje)
             .create();
 

@@ -22,7 +22,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     ListaVuelos listaVuelos = new ListaVuelos();
     Puerta puertas = new Puerta();
     ListaPuertas listaPuertas = new ListaPuertas();
-
+    Heap heap = new Heap(20);
     ListaVuelos vuelosOrdenados = new ListaVuelos();
     ListaVuelos salidaOrdenada = new ListaVuelos();
     ListaVuelos cantidadTotal = new ListaVuelos();
@@ -222,7 +222,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 153));
         jLabel14.setText("Estructura de colas");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Colas de priorirdad", "Árboles Heap" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Colas de priorirdad", "Heap" }));
 
         jLabel15.setForeground(new java.awt.Color(0, 0, 153));
         jLabel15.setText("Puertas");
@@ -548,22 +548,32 @@ public class TECPlaneFrame extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jPanel10.setBackground(new java.awt.Color(0, 204, 255));
+
+        jPanel11.setBackground(new java.awt.Color(0, 204, 255));
+
         jLabel29.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText(" GESTIÓN");
 
         jLabel30.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("Puertas Existentes");
 
         jLabel31.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("Vuelo");
 
         jLabel32.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
         jLabel32.setText("Cantidad de Personas");
 
         jLabel33.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Siguiente Cliente");
 
         jLabel34.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setText("Códigos de Asientos");
 
         jButton15.setText("OBTENER");
@@ -634,10 +644,14 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel12.setBackground(new java.awt.Color(0, 204, 255));
+
         jLabel35.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(0, 0, 153));
         jLabel35.setText("MODIFICAR CANTIDAD DE PUERTAS");
 
         jLabel36.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
         jLabel36.setText("Número");
 
         jButton16.setText("APLICAR");
@@ -677,25 +691,34 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                 .addContainerGap(120, Short.MAX_VALUE))
         );
 
+        jPanel13.setBackground(new java.awt.Color(0, 204, 255));
+
         jLabel37.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
         jLabel37.setText("ESTADÍSTICAS");
 
         jLabel38.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(0, 0, 153));
         jLabel38.setText("TIEMPOS DE ESPERA");
 
         jLabel39.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
         jLabel39.setText("Por plan de lealtad");
 
         jLabel40.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setText("Cola de salida");
 
         jLabel41.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(0, 0, 153));
         jLabel41.setText("TOTAL DE PERSONAS ATENDIDAS");
 
         jLabel42.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
         jLabel42.setText("Por plan de lealtad");
 
         jLabel43.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("Puertas");
 
         jButton17.setText("OBTENER");
@@ -706,6 +729,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         });
 
         jLabel44.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
         jLabel44.setText("Colas de Salidas");
 
         jComboBox10.addActionListener(new java.awt.event.ActionListener() {
@@ -722,6 +746,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
         });
 
         jLabel45.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(0, 0, 153));
         jLabel45.setText("TOTAL DE ASIENTOS DISPENSADOS");
 
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Económico", "Platino", "Oro", "Ingreso Especial" }));
@@ -809,7 +834,7 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                         .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton21)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -875,7 +900,8 @@ public class TECPlaneFrame extends javax.swing.JFrame {
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1390,75 +1416,137 @@ public class TECPlaneFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       User user = new User();
-       // counteratencion ++;
-      // jTextField16.setText(Integer.toString(counteratencion));
-       
-       Random random = new Random();
-       int posAsiento = random.nextInt(3);
-       int numAsiento = random.nextInt(100);
+        User user = new User();
+        // counteratencion ++;
+        // jTextField16.setText(Integer.toString(counteratencion));
 
-       Vuelos randomvuelo = listaVuelos.encontrar((String)jComboBox4.getSelectedItem());
-       
-       
-       user.setNombre(jTextField1.getText());
-       user.setFechaNacimiento(jTextField2.getText());
-       user.setPasaporte(Integer.parseInt(jTextField3.getText()));
-       user.setNacionalidad(jTextField4.getText());
-       user.setOrigin(jTextField5.getText());
-       //user.setDestiny(jTextField6.getText());
-       user.setDestiny((String)jComboBox4.getSelectedItem());
-       
-       if (jRadioButton1.isSelected() == true){
-           user.setPlanLealtad(jRadioButton1.getText());
-       }else if(jRadioButton2.isSelected() == true){
-           user.setPlanLealtad(jRadioButton2.getText());
-       }else if(jRadioButton3.isSelected() == true) {
-            user.setPlanLealtad(jRadioButton3.getText());
-        } else if (jRadioButton4.isSelected() == true) {
-            user.setPlanLealtad(jRadioButton4.getText());
+        Random random = new Random();
+        int posAsiento = random.nextInt(3);
+        int numAsiento = random.nextInt(100);
+        int IngEsp = 80 + random.nextInt(100);
+        int Plati = 60 + random.nextInt(79);
+        int Oroo = 40 + random.nextInt(59);
+        int Economm = 20 + random.nextInt(39);
+
+
+        Vuelos randomvuelo = listaVuelos.encontrar((String) jComboBox4.getSelectedItem());
+
+        if (jComboBox1.getSelectedItem().equals("Heap")) {
+
+            user.setNombre(jTextField1.getText());
+            user.setFechaNacimiento(jTextField2.getText());
+            user.setPasaporte(Integer.parseInt(jTextField3.getText()));
+            user.setNacionalidad(jTextField4.getText());
+            user.setOrigin(jTextField5.getText());
+            //user.setDestiny(jTextField6.getText());
+            user.setDestiny((String) jComboBox4.getSelectedItem());
+
+            if (jRadioButton1.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton1.getText());
+            } else if (jRadioButton2.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton2.getText());
+            } else if (jRadioButton3.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton3.getText());
+            } else if (jRadioButton4.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton4.getText());
+            } else {
+                JOptionPane.showMessageDialog(null, "Señale un tipo de ingreso", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            if (user.getPlanLealtad().equals(jRadioButton1.getText())) {
+                user.setPrioridad(Economm);
+                econ++;
+            } else if (user.getPlanLealtad().equals(jRadioButton2.getText())) {
+                user.setPrioridad(Oroo);
+                oro++;
+            } else if (user.getPlanLealtad().equals(jRadioButton3.getText())) {
+                user.setPrioridad(Plati);
+                plat++;
+            } else {
+                user.setPrioridad(IngEsp);
+                iesp++;
+            }
+            user.setAsiento(numAsiento, user.getPlanLealtad(), posAsiento);
+            heap.insert(user);
+            /*EnvioSMS enviosms = new EnvioSMS();
+            enviosms.EnvioDeMensaje("+506" + jTextField20.getText(), "Asiento: " + user.getAsiento());*/
+            JOptionPane.showMessageDialog(null, "Asiento: " + user.getAsiento(), "Listo", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Señale un tipo de ingreso", "Error", JOptionPane.ERROR_MESSAGE);
+
+            user.setNombre(jTextField1.getText());
+            user.setFechaNacimiento(jTextField2.getText());
+            user.setPasaporte(Integer.parseInt(jTextField3.getText()));
+            user.setNacionalidad(jTextField4.getText());
+            user.setOrigin(jTextField5.getText());
+            //user.setDestiny(jTextField6.getText());
+            user.setDestiny((String) jComboBox4.getSelectedItem());
+
+            if (jRadioButton1.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton1.getText());
+            } else if (jRadioButton2.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton2.getText());
+            } else if (jRadioButton3.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton3.getText());
+            } else if (jRadioButton4.isSelected() == true) {
+                user.setPlanLealtad(jRadioButton4.getText());
+            } else {
+                JOptionPane.showMessageDialog(null, "Señale un tipo de ingreso", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            if (user.getPlanLealtad().equals(jRadioButton1.getText())) {
+                econ++;
+            } else if (user.getPlanLealtad().equals(jRadioButton2.getText())) {
+                oro++;
+            } else if (user.getPlanLealtad().equals(jRadioButton3.getText())) {
+                plat++;
+            } else {
+                iesp++;
+            }
+            user.setAsiento(numAsiento, user.getPlanLealtad(), posAsiento);
+
+            /*EnvioSMS enviosms = new EnvioSMS();
+            enviosms.EnvioDeMensaje("+506" + jTextField20.getText(), "Asiento: " + user.getAsiento());*/
+
+            randomvuelo.agregaracola(user);
+            JOptionPane.showMessageDialog(null, "Asiento: " + user.getAsiento(), "Listo", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(randomvuelo.toString());
+
         }
-       if (user.getPlanLealtad().equals(jRadioButton1.getText())){
-           econ++;
-       }else if(user.getPlanLealtad().equals(jRadioButton2.getText())){
-           oro++;
-       }else if(user.getPlanLealtad().equals(jRadioButton3.getText())){
-           plat++;
-       }else{
-           iesp++;
-       }
-        user.setAsiento(numAsiento, user.getPlanLealtad(), posAsiento);
-        
-        EnvioSMS enviosms = new EnvioSMS();
-        enviosms.EnvioDeMensaje("+506" + jTextField20.getText(), "Asiento: " + user.getAsiento());
-        
-        randomvuelo.agregaracola(user);
-        JOptionPane.showMessageDialog(null, "Asiento: " + user.getAsiento(), "Listo", JOptionPane.INFORMATION_MESSAGE);
-        System.out.println(randomvuelo.toString());
-
-
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-        Vuelos order = listaVuelos.encontrar((String)jComboBox4.getSelectedItem());
-        Vuelos prioritario = new Vuelos();
-        Vuelos exit = order.prioridad_cola(order, prioritario, (String)jComboBox4.getSelectedItem());
-        salidaOrdenada.insertar(exit);
-        Vuelos priority = new Vuelos();
-        Vuelos ordenado = order.prioridad_cola(order, priority, (String)jComboBox4.getSelectedItem());
-        vuelosOrdenados.insertar(ordenado);
-        vuelosOrdenados.consultarcola();
-        Vuelos vueloEspecifico = vuelosOrdenados.encontrar((String)jComboBox4.getSelectedItem());
-        // Ya no hay que instanciarla cola a cada rato :D
-        jTextArea1.setText(vueloEspecifico.verEspeciales());
-        jTextArea3.setText(vueloEspecifico.verOros());
-        jTextArea4.setText(vueloEspecifico.verEconomicos());
-        jTextArea5.setText(vueloEspecifico.verPlatinos());
-
+        heap.maxHeap();
+        if (jComboBox1.getSelectedItem().equals("Heap")) {
+            Vuelos randomvuelo = listaVuelos.encontrar((String) jComboBox4.getSelectedItem());
+            heap.recorrer(randomvuelo);
+            Vuelos order = listaVuelos.encontrar((String) jComboBox4.getSelectedItem());
+            Vuelos prioritario = new Vuelos();
+            Vuelos exit = order.prioridad_cola(order, prioritario, (String) jComboBox4.getSelectedItem());
+            salidaOrdenada.insertar(exit);
+            Vuelos priority = new Vuelos();
+            Vuelos ordenado = order.prioridad_cola(order, priority, (String) jComboBox4.getSelectedItem());
+            vuelosOrdenados.insertar(ordenado);
+            vuelosOrdenados.consultarcola();
+            Vuelos vueloEspecifico = vuelosOrdenados.encontrar((String) jComboBox4.getSelectedItem());
+            jTextArea1.setText(vueloEspecifico.verEspeciales());
+            jTextArea3.setText(vueloEspecifico.verOros());
+            jTextArea4.setText(vueloEspecifico.verEconomicos());
+            jTextArea5.setText(vueloEspecifico.verPlatinos());
+        } else {
+            Vuelos order = listaVuelos.encontrar((String) jComboBox4.getSelectedItem());
+            Vuelos prioritario = new Vuelos();
+            Vuelos exit = order.prioridad_cola(order, prioritario, (String) jComboBox4.getSelectedItem());
+            salidaOrdenada.insertar(exit);
+            Vuelos priority = new Vuelos();
+            Vuelos ordenado = order.prioridad_cola(order, priority, (String) jComboBox4.getSelectedItem());
+            vuelosOrdenados.insertar(ordenado);
+            vuelosOrdenados.consultarcola();
+            Vuelos vueloEspecifico = vuelosOrdenados.encontrar((String) jComboBox4.getSelectedItem());
+            // Ya no hay que instanciarla cola a cada rato :D
+            jTextArea1.setText(vueloEspecifico.verEspeciales());
+            jTextArea3.setText(vueloEspecifico.verOros());
+            jTextArea4.setText(vueloEspecifico.verEconomicos());
+            jTextArea5.setText(vueloEspecifico.verPlatinos());
+        }
         //System.out.println(cola.prioridad_cola(cola, prioridad).toString());   // Esto acomoda la cola inicial y la pasa a la prioridad
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -1610,7 +1698,8 @@ public class TECPlaneFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jFrame4.setVisible(true);
-        jFrame4.setSize(744, 580);
+        jFrame4.setSize(744, 700);
+        jFrame4.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
