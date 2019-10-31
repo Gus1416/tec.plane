@@ -4,13 +4,17 @@ package com.mycompany.tec.plane;
 import java.util.Arrays;
 
 public class Heap {
-
+    
+    //Almacenan cada usuario
     private User[] Heap;
+    
+    //Almacena el tamaño del heap
     private int size;
     private int maxsize;
  
     private static final int FRONT = 1;
  
+    //Constructores
     public Heap(int maxsize)
     {
         this.maxsize = maxsize;
@@ -19,21 +23,25 @@ public class Heap {
         Heap[0] = new User(Integer.MAX_VALUE);
     }
  
+    //Devuelve la posición del padre 
     private int parent(int pos)
     {
         return pos / 2;
     }
  
+    //Devuelve  la posición de un hijo izquierdo
     private int leftChild(int pos)
     {
         return (2 * pos);
     }
  
+    //Devuelve  la posición de un hijo derecho
     private int rightChild(int pos)
     {
         return (2 * pos) + 1;
     }
- 
+    
+    //Verifica si es un nodo hoja
     private boolean isLeaf(int pos)
     {
         if (pos >=  (size / 2)  &&  pos <= size)
@@ -42,7 +50,8 @@ public class Heap {
         }
         return false;
     }
- 
+    
+    //intercambia la posición de dos usuarios
     private void swap(int fpos,int spos)
     {
         User tmp;
@@ -51,6 +60,8 @@ public class Heap {
         Heap[spos] = tmp;
     }
  
+    
+    //Este método ordena el heap de mayor a menor, en el orden de prioridad según el plan de lealtdad de cada usuario.
     private void maxHeapify(int pos)
     {
         if (!isLeaf(pos))
@@ -70,6 +81,7 @@ public class Heap {
         }
     }
  
+    //Inserta según su orden de prioridad a un nuevo usuario al heap.
     public void insert(User user)
     {
         Heap[++size] = user;
@@ -82,6 +94,7 @@ public class Heap {
         }	
     }
 
+    
     public void maxHeap()
     {
         for (int pos = (size / 2); pos >= 1; pos--)
@@ -90,6 +103,7 @@ public class Heap {
         }
     }
  
+    //Remueve un usuario del heap
     public User remove()
     {
         User popped = Heap[FRONT];
@@ -98,6 +112,7 @@ public class Heap {
         return popped;
     }
     
+   //recorre cada vuelo 
     public void recorrer(Vuelos lista){
         int contador = 1;
         while (contador <= this.size){
@@ -107,6 +122,7 @@ public class Heap {
         }
     }
  
+    //Imprime todos los usuario que estan dentro de heap
     public void ver(){
         System.out.println(Arrays.toString(Heap));
     }

@@ -6,8 +6,11 @@
 package com.mycompany.tec.plane;
 ////
 ////////
+//Almacena los datos de cada vuelo, 
 public class Vuelos {
-    //
+    //Atributos
+    
+    //Almacenan los datos del vuelo
     private int NumeroVuelo;
     private String Origen;
     private String Destino;
@@ -15,56 +18,56 @@ public class Vuelos {
     private int door;
 
     /**
-     * @return the Numero
+     * Devuelve el número de vuelo
      */
     public int getNumeroVuelo() {
         return NumeroVuelo;
     }
 
     /**
-     * @param Numero the Numero to set
+     * @setea el número de vuelo
      */
     public void setNumeroVuelo(int Numero) {
         this.NumeroVuelo = Numero;
     }
 
     /**
-     * @return the Origen
+     * Devuelve el origen del vuelo
      */
     public String getOrigen() {
         return Origen;
     }
 
     /**
-     * @param Origen the Origen to set
+     * setea el origen del vuelo 
      */
     public void setOrigen(String Origen) {
         this.Origen = Origen;
     }
 
     /**
-     * @return the Destino
+     * devuelve el destino del vuelo 
      */
     public String getDestino() {
         return Destino;
     }
 
     /**
-     * @param Destino the Destino to set
+     * setea el destino del vuelo
      */
     public void setDestino(String Destino) {
         this.Destino = Destino;
     }
 
     /**
-     * @return the door
+     * devuelve un número de puerta
      */
     public int getDoor() {
         return door;
     }
 
     /**
-     * @param door the door to set
+     * setea el número de puerta
      */
     public void setDoor(int door) {
         this.door = door;
@@ -79,6 +82,8 @@ public class Vuelos {
      * @param flight  el vuelo al cual se le definira la puerta 
      * @return 
      */
+    
+    //Asigna una puerta a un vuelo especifico
     public int generar_Puerta(int [] cantpuertas, int datoarr, Vuelos flight){
         
         if (datoarr > cantpuertas.length){
@@ -91,11 +96,14 @@ public class Vuelos {
         return flight.getDoor();
         
     }
-            
-            NodoUser front;
+         
+        //Atributos
+    
+        NodoUser front;
         NodoUser rear;
         int size;
 
+        //Agrega un nuevo pasajero al vuelo
         public void agregaracola(User Data) {
             NodoUser passenger = new NodoUser(Data);
 
@@ -109,7 +117,11 @@ public class Vuelos {
                 size++;
             }
         }
-
+        /*
+         *Recibe como parámetros un vuelo, prioridad cola a la cual se le van a pasar los pasajeros 
+         *según el ordende prioridad y el destino del vuelo
+        */
+        //Define un orden de prioridad según el plan de lealtad en cada vuelo.
         public Vuelos prioridad_cola(Vuelos colainicial, Vuelos prioridad, String destino) {
 
             NodoUser temp1 = front;
@@ -162,20 +174,24 @@ public class Vuelos {
                 }
 
             }
-
+            
+            //Devuelve el vuelo ordenado en el orden de prioridad
             return prioridad;
         }
-
+        
+        //Devuelve el tamaño de la cola vuelos
         public int size() {
             return this.size;
         }
-
+        
+        //Limpia la cola 
         public void clear() {
             this.front = new NodoUser();
             this.rear = this.front;
             this.size = 0;
         }
 
+        //Devuelve todos los pasajeros con plan de lealtad de ingreso especial
         public String verEspeciales() {
             NodoUser temp = this.front;
             String result = "";
@@ -189,7 +205,8 @@ public class Vuelos {
             }
             return result;
         }
-
+        
+        //Devuelve todos los pasajeros con plan de lealtad de platino
         public String verPlatinos() {
             NodoUser temp = this.front;
             String result = "";
@@ -203,7 +220,8 @@ public class Vuelos {
             }
             return result;
         }
-
+        
+        //Devuelve todos los pasajeros con plan de lealtad de oro
         public String verOros() {
             NodoUser temp = this.front;
             String result = "";
@@ -218,6 +236,7 @@ public class Vuelos {
             return result;
         }
 
+        //Devuelve todos los pasajeros con plan de lealtad de económico
         public String verEconomicos() {
             NodoUser temp = this.front;
             String result = "";
@@ -231,7 +250,8 @@ public class Vuelos {
             }
             return result;
         }
-
+        
+        //Devuelve el nombre de todos los pasajeros de la cola
         public void consultarcola() {
             NodoUser temp = front;
 
@@ -240,7 +260,8 @@ public class Vuelos {
                 temp = temp.getNext();
             }
         }
-
+        
+        //Remueve el primer pasajero de ingreso especial
         public void removeFirstNodeEspecial() {
             if (front == null) {
                 System.out.println("Vacio");
@@ -250,11 +271,13 @@ public class Vuelos {
                     front = front.next;
                     temp.next = null;
                 } else {
+                    //si ya no hay más pasajeros con el plan de lealtad de ingreso especial muestra un mensaje
                     System.out.println(" Ya se atendieron a todos los Usuarios de Ingreso Especial");
                 }
             }
         }
-
+        
+        //Remueve el primer elemento de la cola
         public void removeFirstNode() {
             if (front == null) {
                 System.out.println("Vacio");
@@ -267,7 +290,7 @@ public class Vuelos {
         }
         
         
-        
+        //Devuelve el código de asiento de un pasajero
         public CheckIn Codigos(CheckIn codes){
             NodoUser temp = front;
                    
@@ -282,8 +305,10 @@ public class Vuelos {
             
         }
         
+        //Duelve la cantidad de personas atendidas por plan de lealtad.
         public String SegunPlanLealtad(){
             
+            //Almacena la cantidad de persona por plan de lealtad
             int ECO=0;
             int OR= 0;
             int PO=0;
@@ -340,12 +365,15 @@ public class Vuelos {
         }
         
         String resultados =  "La cantidad de personas atendidas de Ingreso especial es:" + EL +  " de Platino: " + PO +" de Oro:"  + OR +" de Economico:" + ECO;
-            
+           
+        //Devuelve la cantidad de personas por cada plan de lealtad
          return resultados;   
         }
         
 
         @Override
+        
+        //Devuelve los pasajeros que no han sido atendidos en la cola.
         public String toString() {
             String result = "* Resultado de Cola*\n";
             NodoUser tFront = this.front;

@@ -16,7 +16,12 @@ import java.io.IOException;
  */
 public class Analyze {
     
-    
+    //Métodos
+    /*
+     *Este método recibe como parámetro un texto, analiza el porcentaje y magnitud del sentimiento encontrado y lo clasifica 
+     *entre claramente positivo, positivo, combinado, neutral, negativo y claramente negativo, esto para tener una mejor 
+     *interpretación del porcetaje encontrado.
+    */
     public static String AnalizarSentimiento(String text) throws IOException{
       
         String sentimiento = null;
@@ -59,6 +64,8 @@ public class Analyze {
             sentimiento += "Claramente Positiva";
 
         }
+        //Devuelve un String con el texto a analizar, el porcentaje y magnitd del texto, y el sentimiento encontrado.
+        
         return sentimiento;
       }
 

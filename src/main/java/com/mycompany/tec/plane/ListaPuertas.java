@@ -1,12 +1,17 @@
 package com.mycompany.tec.plane;
 
+//Esta clase permite almacenar puertas en una estructura de lista enlazada simple
 public class ListaPuertas {
-///
+    
+///Atributos
+    
     public Nodo head;
     public Nodo tail;
     public Nodo current;
     public int size;
 
+///Métodos
+    //Obtiene el tamaño de la ListaPuertas
     public int getsize() {
         return this.size;
     }
@@ -15,6 +20,8 @@ public class ListaPuertas {
      *
      * @param num es l vuelo que desea insertar a la lista de vuelos
      */
+    
+    //Recibe como parámetro un vuelo que se desea insertar a la lista
     public void insertar(Puerta num) {
         Nodo temp = new Nodo(num);
         if (head == null) {
@@ -29,6 +36,7 @@ public class ListaPuertas {
     }
 
     @Override
+    //Duelve la ListaPuertas existentes
     public String toString() {
         Nodo currentNode = this.head.getNext();
 

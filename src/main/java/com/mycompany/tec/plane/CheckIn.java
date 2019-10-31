@@ -5,13 +5,17 @@
  */
 package com.mycompany.tec.plane;
 
+//Almacena los códigos de asiento en una cola
 public class CheckIn {
 ///////
+    //Atributos
     NodoCodigos front;
     NodoCodigos rear;
     int size;
     
-   //
+   //Métodos
+    
+    //Agrega un nuevo pasajero un nuevo código de asiento a la cola
     public void agregaracola(String Data) {
         NodoCodigos passenger = new NodoCodigos(Data);
 
@@ -30,7 +34,7 @@ public class CheckIn {
     
    
     
-
+    //Devuelve el tamaño de la cola
     public int size() {
         return this.size;
     }
@@ -38,7 +42,7 @@ public class CheckIn {
 
     
     
-    
+ //Consulta los códigos que hay en dicha cola   
 public void consultarcola(){
             NodoCodigos temp = front;
             int A=1;
@@ -56,6 +60,8 @@ public void consultarcola(){
 
 
     @Override
+    
+    //Devuelve los pasajeros que no han sido atendidos
     public String toString() {
         String result = "** Resultado de Cola**\n";
         NodoCodigos tFront = this.front;

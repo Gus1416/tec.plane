@@ -169,6 +169,9 @@ public class TECPlane {
        vuelo3.agregaracola(Maria);
        vuelo3.agregaracola(Pedro);
        
+       EnvioSMS envio = new EnvioSMS();
+       //envio.EnvioDeMensaje(Alex.getAsiento());
+       
        
        ListaVuelos listflight = new ListaVuelos();
        ListaVuelos ORDENADISIMA = new ListaVuelos();
@@ -222,6 +225,8 @@ public class TECPlane {
         
         
         
+        
+        
        //-----------------------------------------ADMINISTRACION---------------------------------------------
        
        // Cola actual del vuelo especifico
@@ -262,6 +267,9 @@ public class TECPlane {
         //
         
         //4
+        //----------------------------------------------------------------------------------------------------------------
+        //Se obtienen los tiempos promedio de las variables que se ubican en la clase salida "prom_
+
         //5
         
         //6

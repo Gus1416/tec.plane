@@ -6,12 +6,18 @@
 package com.mycompany.tec.plane;
 
 import java.util.Random;
+
+//Esta clase permite almacenar cada vuelo en una estructura de lista enlazada simple
 public class ListaVuelos {
     ////////////
      public class Nodo{
-            
+         
+            //Atributos
+         
             Vuelos data;
             Nodo next;
+            
+            //Métodos
 
             public Nodo(){
                 next=null;
@@ -22,27 +28,31 @@ public class ListaVuelos {
                 this.data= num;
                 
             }
-  
+            
+            //Setea la información de un vuelo.
             public void setData(Vuelos num){
                 this.data= num;
             } 
             
+            //Obtiene el dato con la información de un vuelo.
             public Vuelos getData(){
                 return this.data;
             }
+            
             public Nodo getNext() {
 			return this.next;
 		}
         }
         
-        
+        //Atributos
         public Nodo head;
         public Nodo tail;
         public Nodo current;
         public int size;
         
         
-        
+        //Métodos
+        //Duelve el tamaño de la ListaVuelos
         public int getsize(){
             return this.size;
         }
@@ -53,6 +63,8 @@ public class ListaVuelos {
          * 
          * @param num es l vuelo que desea insertar a la lista de vuelos
          */
+        
+        //Inserta un vuelo a la Lista
         public void insertar(Vuelos num){
             Nodo temp = new Nodo(num);
             if (head == null){
@@ -89,6 +101,8 @@ public class ListaVuelos {
             return false;
            
         }*/
+        
+        //Accede a la lista vuelos y devuelve el código de los pasajeros de un vuelo específico.
         public Vuelos listafinal(Vuelos ultima){
             
             Nodo tempo = head;
@@ -105,6 +119,8 @@ public class ListaVuelos {
             return ultima;
           
         }
+        
+        //Recibe como prámetro en String con el nombre del vuelo, busca si el vuelo existe y lo devuelve el dato del tipo Vuelos. 
         public Vuelos encontrar(String destino){
             Nodo temp = this.head;
             
@@ -124,7 +140,7 @@ public class ListaVuelos {
         }
         /**
          * 
-         * @param list    lista de vuelos a los cuales se le asignaran las puertas respectivas siempre y cuando se encuentren dentro de la cantidad de puertas existentes
+         * @param list    lista de vuelos a los cuales se les asigna las puertas respectivas siempre y cuando se encuentren dentro de la cantidad de puertas existentes
          * @param arrpuertas   arreglo con la cantidad de puertas existentes creados en la funcion 3.1
          */
         public void setearpuertas_vuelos(ListaVuelos list,int [] arrpuertas){
@@ -149,6 +165,7 @@ public class ListaVuelos {
 
         }
         
+       //Obtiene y devuelve el dato destino de cada vuelo existente.
        public void consultarcola() {
             Nodo temp = head;
 
@@ -159,6 +176,7 @@ public class ListaVuelos {
         }
         
      @Override
+     //Duelve los vuelos existentes
     public String toString() {
             Nodo currentNode = this.head.getNext();
 

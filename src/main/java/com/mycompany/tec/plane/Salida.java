@@ -8,10 +8,16 @@ package com.mycompany.tec.plane;
 import java.io.IOException;
 import java.util.Random;
 
+/*
+ *Esta clase permite atender a cada una de las personas en la cola Salida, y generar los tiempos de espera totales y por plan de lealtad
+*/
 public class Salida {
-    
-static float prom_time_salida;
+
+//Atributos   
+static float prom_time_salida;//Almacena el tiempo promedio de espera en la atencción de salida
 ///////////
+
+//Almacena el tiempo promedio de espera por plan de lealtad 
 static float prom_time_espe;
 
 static float prom_time_plat;
@@ -20,8 +26,12 @@ static float prom_time_oro;
 
 static float prom_time_eco;
 ///////////
+
+//Almacena la cantidad total de personas atendidas en la cola de salida
 static int cantpeoplesalida;
 ///////////
+
+//Almacena la cantidad de personas atedidas por pla de lealtad en la  cola de salida.
 static int cantEspe;
 
 static int cantPlat;
@@ -30,8 +40,13 @@ static int cantOro;
 
 static int cantEco;
 ///////////
+
+//Almacena el tiempo total de espera es la cola de salida 
 static int timeSalida;
 ///////////
+
+
+//Almacena el tiempo total por plan de lealtad de espera en la cola de salida
 static int timeSalidaEsp;
 
 static int timeSalidaPlat;
@@ -44,10 +59,14 @@ static int timeSalidaEco;
 
 Random radin = new Random();
 
+//Genera un entero random de atención
 int atencion = radin.nextInt(151);
 
 String Comentario = "Pésimo servicio";
 
+/*
+ * recibe como parámetros un vuelo, un entero con el tiempo de atencion y el un String con el comentario a analizar.
+*/
 public String salida_pasajeros(Vuelos cola, int atencion, String Comentario) throws IOException{
     
     String coment = Comentario;
@@ -58,10 +77,16 @@ public String salida_pasajeros(Vuelos cola, int atencion, String Comentario) thr
 
     cola.consultarcola();
     
+    //Obtiene al pasajero que se esta atendiendo.
     String atendiendo = "Atendiendo a: " + cola.front.getData().getNombre();
     
+    /*Verifica en cual plan de lealtad se encuentra el pasajero.
+     *Suma 1 a la cantidad total de personas atendidas en general y también al plan de lealtad en que se encuentra.
+     *Suma el tiempo de espera general y el tiempo de espera al plan de lealtdad.
+     *Obtiene y almacena el promedio de espera general y por plan de lealtad.
+    */
     if(cola.front.getData().getPlanLealtad().equals("Ingreso Especial")){
-        
+         
         cantEspe +=1;
         timeSalidaEsp += atencion + cola.front.getData().getTimeEsperaEntrada();
         prom_time_espe =  timeSalidaEsp / cantEspe;
@@ -120,6 +145,9 @@ public String salida_pasajeros(Vuelos cola, int atencion, String Comentario) thr
     String tiemp = "Con un tiempo de atención de: " + atencion;
     
     String resultado;
+    
+    //Le pasa el parámetro comentario al método AnalizarSentimiento de la clase Analyze para obtener el sentimiento
+    //encontrado, su porcentaje y magnitud.
     resultado = analizarOpinion.AnalizarSentimiento(comentario);
     
     cola.removeFirstNode();
@@ -127,6 +155,8 @@ public String salida_pasajeros(Vuelos cola, int atencion, String Comentario) thr
     cola.consultarcola();
     
     System.out.println(resultado);
+    
+    //Devuelve un String que contiene el nombre del pasajero atendido, plan de lealtad, tiempo de espera por pasajero y resultado del analisis del sentimiento.
     return atendiendo + "\n" + plan + "\n" + tiemp + "\n" + resultado + "\n" + "*******************************************" + "\n";
     
 }
